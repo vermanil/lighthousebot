@@ -28,6 +28,7 @@ const GITHUB_PENDING_STATUS = {
   description: 'Auditing PR changes...'
 };
 
+console.log("token has came", process.env.OAUTH_TOKEN);
 const CI = new LighthouseCI(process.env.OAUTH_TOKEN);
 const API_KEY_HEADER = 'X-API-KEY';
 
@@ -145,6 +146,8 @@ app.post('/run_on_chrome', async (req, res) => {
     sha: config.pr.sha
   };
 
+  console.log("prInfo", prInfo);
+
   // // Require an API key from users.
   // if (!req.get(API_KEY_HEADER)) {
   //   const msg = `${API_KEY_HEADER} is missing`;
@@ -253,7 +256,7 @@ app.post('/run_on_chrome', async (req, res) => {
 //     });
 // });
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
   console.log('Press Ctrl+C to quit.');

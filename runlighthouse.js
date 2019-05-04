@@ -146,6 +146,7 @@ function getConfig() {
  * @param {!Object} config Settings to run the Lighthouse CI.
  */
 function run(config) {
+  console.log("run function has been called");
   let endpoint;
   let body = JSON.stringify(config);
 
@@ -181,6 +182,7 @@ function run(config) {
 
 // Run LH if this is a PR.
 const config = getConfig();
+console.log("config", config);
 if (process.env.TRAVIS_EVENT_TYPE === 'pull_request') {
   run(config);
 } else {
