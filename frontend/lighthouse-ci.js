@@ -162,14 +162,15 @@ class LighthouseCI {
     let rows = '';
     Object.values(lhr.categories).forEach(cat => {
       const threshold = thresholds[cat.id] || '-';
-      rows += `| ${cat.title} | ${cat.score * 100} | ${threshold} | ${url} \n`;
+      rows += `| ${cat.title} | ${cat.score * 100} | ${threshold} \n`;
     });
 
     const body = `
 Updated [Lighthouse](https://developers.google.com/web/tools/lighthouse/) report for the changes in this PR:
+AUDIT URL: ${url}
 
-| Category | New score | Required threshold | Audit Url |
-| ------------- | ------------- | ------------- | ------------- |
+| Category | New score | Required threshold |
+| ------------- | ------------- | ------------- |
 ${rows}
 
 _Tested with Lighthouse version: ${lhr.lighthouseVersion}_`;
