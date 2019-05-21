@@ -206,7 +206,7 @@ app.post('/run_on_chrome', async (req, res) => {
   // Post comment on issue with updated LH scores.
   if (config.addComment) {
     try {
-      await CI.postLighthouseComment(prInfo, lhr, config.thresholds);
+      await CI.postLighthouseComment(prInfo, lhr, config.thresholds, config.testUrl);
     } catch (err) {
       res.json('Error posting Lighthouse comment to PR.');
     }

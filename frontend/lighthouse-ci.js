@@ -158,7 +158,7 @@ class LighthouseCI {
    * @param {!Object<string, number>} thresholds Minimum scores per category.
    * @return {!Promise<!Object<string, number>} Lighthouse scores.
    */
-  postLighthouseComment(prInfo, lhr, thresholds) {
+  postLighthouseComment(prInfo, lhr, thresholds, url = '') {
     let rows = '';
     Object.values(lhr.categories).forEach(cat => {
       const threshold = thresholds[cat.id] || '-';
@@ -166,7 +166,7 @@ class LighthouseCI {
     });
 
     const body = `
-Updated [Lighthouse](https://developers.google.com/web/tools/lighthouse/) report for the changes in this PR:
+Updated [Lighthouse](https://developers.google.com/web/tools/lighthouse/) report for the changes in this PR for Url ${url}:
 
 | Category | New score | Required threshold |
 | ------------- | ------------- | ------------- |
