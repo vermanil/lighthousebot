@@ -129,10 +129,12 @@ function getConfig() {
     sha: process.env.TRAVIS_PULL_REQUEST_SHA
   };
 
-  const repoSlug = process.env.TRAVIS_PULL_REQUEST_SLUG;
+  const repoSlug1 = process.env.TRAVIS_PULL_REQUEST_SLUG;
   if (!repoSlug) {
     throw new Error('This script can only be run on Travis PR requests.');
   }
+
+  const repoSlug = process.env.TRAVIS_REPO_SLUG;
 
   config.repo = {
     owner: repoSlug.split('/')[0],
