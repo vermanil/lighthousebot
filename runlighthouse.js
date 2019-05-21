@@ -130,7 +130,7 @@ function getConfig() {
   };
 
   const repoSlug1 = process.env.TRAVIS_PULL_REQUEST_SLUG;
-  if (!repoSlug) {
+  if (!repoSlug1) {
     throw new Error('This script can only be run on Travis PR requests.');
   }
 
