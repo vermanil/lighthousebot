@@ -168,6 +168,7 @@ class LighthouseCI {
     const body = `
 Updated [Lighthouse](https://developers.google.com/web/tools/lighthouse/) report for the changes in this PR:
 AUDIT URL: ${url}
+Please check the Report manually on https://lighthouse.zomans.com/lighthousebot/try
 
 | Category | New score | Required threshold |
 | ------------- | ------------- | ------------- |
